@@ -1,0 +1,32 @@
+{% set name = "servicetest" %}
+# The name above should match the one in setup.py
+{% set version = "0.1" %}
+
+package:
+  name: {{ name|lower }}
+  version: {{ version }}
+
+about:
+  author: Rohit Khattar
+  description: App for testing the warehouse
+  license: BSD 3-Clause License
+  license_family: BSD
+
+build:
+  string: r1
+  preserve_egg_dir: True
+
+source:
+  path: ../
+
+requirements:
+  build:
+    - python
+    - tethys-platform
+
+outputs:
+  - name: {{ name|lower }}
+
+extra:
+  recipe-maintainers:
+    - rohitkhattar
