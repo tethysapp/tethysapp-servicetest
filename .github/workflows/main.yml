@@ -1,0 +1,14 @@
+name: Publish
+
+on: push
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: publish-to-conda
+        uses: rfun/conda-package-publish-action@master
+        with:
+          subDir: "conda.recipes"
+          AnacondaToken: ${{ secrets.ANACONDA_TOKEN }}

@@ -1,28 +1,28 @@
+{% set data = load_setup_py_data(setup_file='../setup.py', from_recipe_dir=True) %}
 {% set name = "servicetest" %}
 # The name above should match the one in setup.py
-{% set version = "0.1" %}
-
 package:
   name: {{ name|lower }}
-  version: {{ version }}
+  version: {{ data.get('version') }}
 
 about:
-  author: Rohit Khattar
-  description: App for testing the warehouse
+  author: {{ data.get('author')}}
+  description: {{ data.get('description')}}
   license: BSD 3-Clause License
   license_family: BSD
 
-build:
-  string: r1
-  preserve_egg_dir: True
 
 source:
-  path: ../
+  path: ..
+
+build:
+  noarch: python
+  script: python setup.py install --record=record.txt
+  preserve_egg_dir: True
 
 requirements:
   build:
     - python
-    - tethys-platform
 
 outputs:
   - name: {{ name|lower }}
