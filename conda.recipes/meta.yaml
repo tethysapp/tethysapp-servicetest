@@ -10,7 +10,8 @@ about:
   description: {{ data.get('description')}}
   license: BSD 3-Clause License
   license_family: BSD
-
+  home: https://github.com/rfun/tethysapp-servicetest.git
+ 
 
 source:
   path: ..
