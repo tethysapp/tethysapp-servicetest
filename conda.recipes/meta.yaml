@@ -1,17 +1,15 @@
 {% set data = load_setup_py_data(setup_file='../setup.py', from_recipe_dir=True) %}
-{% set name = "servicetest" %}
+{% set name = data.get('name')|replace("tethysapp-", "")|lower }}
 # The name above should match the one in setup.py
 package:
-  name: {{ name|lower }}
+  name: {{ name }}
   version: {{ data.get('version') }}
 
 about:
   author: {{ data.get('author')}}
   description: {{ data.get('description')}}
-  license: BSD 3-Clause License
-  license_family: BSD
-  home: https://github.com/rfun/tethysapp-servicetest.git
- 
+  license: {{ data.get('license')}}
+  dev_url: {{ data.get('url') }}
 
 source:
   path: ..
@@ -26,8 +24,10 @@ requirements:
     - python
 
 outputs:
-  - name: {{ name|lower }}
+  - name: {{ name }}
 
 extra:
+  author_email:  {{ data.get('author_email')}}
+  keywords: {{ data.get('keywords')}}
   recipe-maintainers:
-    - rohitkhattar
+    - TethysAppWarehouse
