@@ -8,6 +8,8 @@ requirements:
   skip: false
   conda:
     channels:
+      - rfun
+      - tethysplatform
     packages:
 
   pip:

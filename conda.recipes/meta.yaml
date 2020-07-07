@@ -1,6 +1,6 @@
 {% set data = load_setup_py_data(setup_file='../setup.py', from_recipe_dir=True) %}
 {% set name = data.get('name')|replace("tethysapp-", "")|lower %}
-# The name above should match the one in setup.py
+
 package:
   name: {{ name }}
   version: {{ data.get('version') }}
