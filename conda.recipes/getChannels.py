@@ -11,5 +11,5 @@ try:
         buildCommand = "conda build" + channelString + " --output-folder . ."
         print(buildCommand)
 except Exception as e:
-    print(e)
+    # print(e)
     print("conda build -c conda-forge --output-folder . .")

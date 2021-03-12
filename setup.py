@@ -26,6 +26,7 @@ resource_files += find_resource_files('tethysapp/' + app_package + '/public', 't
 resource_files += find_resource_files('tethysapp/' + app_package + '/workspaces', 'tethysapp/' + app_package)
 
 
+resource_files += find_resource_files('tethysapp/' + app_package + '/scripts', 'tethysapp/' + app_package)
 setup(
     name=release_package,
     version='0.0.4',

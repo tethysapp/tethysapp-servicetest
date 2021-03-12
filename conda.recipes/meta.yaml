@@ -8,26 +8,28 @@ package:
 about:
   author: {{ data.get('author')}}
   description: {{ data.get('description')}}
-  license: {{ data.get('license')}}
+  license: "{'name': 'release_package', 'version': '0.0.4', 'description': 'This is a service Test Application', 'long_description': '', 'author': 'Rohit Khattar', 'author_email': 'rohitkhattar@gmail.com', 'url': 'https://github.com/rfun/tethysapp-servicetest.git', 'license': 'BSD 3-Clause License'}"
   dev_url: {{ data.get('url') }}
-
-source:
-  path: ..
-
-build:
-  noarch: python
-  script: python setup.py install --record=record.txt
-  preserve_egg_dir: True
-
-requirements:
-  build:
-    - python
 
 outputs:
   - name: {{ name }}
-
 extra:
-  author_email:  {{ data.get('author_email')}}
-  keywords: {{ data.get('keywords')}}
+  author_email: rohitkhattar@gmail.com
+  keywords:
+  - Tethys
+  - App
+  - Services
+  - Cool
   recipe-maintainers:
-    - TethysAppWarehouse
+  - TethysAppWarehouse
+
+build:
+  noarch: python
+  preserve_egg_dir: true
+  script: python setup.py install --record=record.txt
+requirements:
+  build:
+  - python
+  run: null
+source:
+  path: ..
